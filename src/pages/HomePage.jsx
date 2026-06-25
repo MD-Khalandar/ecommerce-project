@@ -1,22 +1,7 @@
 import './HomePage.css'
 import {Header} from './components/Header'
-import axios from 'axios';
-import {useEffect, useState} from 'react'
-export function HomePage(){
-const [products , setProducts]=useState([])
-const [cart , setCart]=useState([])
-  useEffect(()=>{
-    axios.get('http://localhost:3000/api/products')
-        .then((response)=>{
-          setProducts(response.data)
-        })
-    axios.get('http://localhost:3000/api/cart-items')
-        .then((response)=>{
-          setCart(response.data)
-        })
-  },[])
 
-  
+export function HomePage({products, cart}){
     return(
         <>
         <Header cart={cart}/>
@@ -25,7 +10,7 @@ const [cart , setCart]=useState([])
       <div className="products-grid">
         {products.map((product)=>{
           return (
-          <div className="product-container">
+          <div key = {product.id} className="product-container">
           <div className="product-image-container">
             <img className="product-image"
               src={product.image} />
