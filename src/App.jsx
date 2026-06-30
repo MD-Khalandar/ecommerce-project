@@ -15,7 +15,7 @@ function App() {
           .then((response)=>{
             setProducts(response.data)
           })
-      axios.get('/api/cart-items')
+      axios.get('/api/cart-items?expand=product')
           .then((response)=>{
             setCart(response.data)
           })
@@ -24,7 +24,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage products={products} cart={cart} />} />
       <Route path="/orders" element={<OrdersPage />} />
-      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
       <Route path='/tracking' element={<TrackingPage />} />
     </Routes>
   )
