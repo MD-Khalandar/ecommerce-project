@@ -1,5 +1,6 @@
 import './orders.css'
 import {Header} from './components/Header'
+import {formatMoney} from '../utils/money'
 export function OrdersPage() {
   return (
     <>
@@ -19,7 +20,7 @@ export function OrdersPage() {
               </div>
               <div className="order-total">
                 <div className="order-header-label">Total:</div>
-                <div>$35.06</div>
+                <div>{formatMoney(3506)}</div>
               </div>
             </div>
 
@@ -98,7 +99,7 @@ export function OrdersPage() {
               </div>
               <div className="order-total">
                 <div className="order-header-label">Total:</div>
-                <div>$41.90</div>
+                <div>{formatMoney(4190)}</div>
               </div>
             </div>
 
